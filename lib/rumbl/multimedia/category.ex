@@ -1,6 +1,7 @@
 defmodule Rumbl.Multimedia.Category do
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query
 
   schema "categories" do
     field :name, :string
@@ -12,6 +13,11 @@ defmodule Rumbl.Multimedia.Category do
   def changeset(category, attrs) do
     category
     |> cast(attrs, [:name])
+    |> unique_constraint(:name, name: :unique_name_index)
     |> validate_required([:name])
+  end
+
+  def alphabetical(query) do
+    from c in query, order_by: c.name
   end
 end
