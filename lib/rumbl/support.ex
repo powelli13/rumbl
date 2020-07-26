@@ -12,7 +12,17 @@ defmodule Rumbl.Support do
 
   def create_help_request(attrs \\ %{}) do
     %HelpRequest{}
-    |> HelpRequest.changeset(attrs)
+    |> change_help_request(attrs)
     |> Repo.insert()
+  end
+
+  def get_help_request!(id) do
+    Repo.get!(HelpRequest, id)
+  end
+
+  def update_help_request(%HelpRequest{} = help_request, attrs \\ %{}) do
+    help_request
+    |> change_help_request(attrs)
+    |> Repo.update()
   end
 end

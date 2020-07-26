@@ -10,7 +10,7 @@ defmodule Rumbl.Support.HelpRequest do
 
   def changeset(help_request, attrs) do
     help_request
-    |> cast(attrs, [:summary, :details])
+    |> cast(attrs, [:summary, :details, :resolved])
     |> validate_required([:summary, :details])
   end
 end

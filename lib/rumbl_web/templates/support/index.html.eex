@@ -6,6 +6,7 @@
       <th>Summary</th>
       <th>Details</th>
       <th>Resolved</th>
+      <th>Controls</th>
     </tr>
   </thead>
   <tbody>
@@ -13,7 +14,16 @@
     <tr>
       <td><%= request.summary %></td>
       <td><%= request.details %></td>
-      <td><%= request.resolved %></td>
+      <td>
+        <%= if request.resolved do %>
+          Resolved
+        <% else %>
+          Not Resolved
+        <% end %>
+      </td>
+      <td>
+        <%= link "Edit", to: Routes.support_path(@conn, :edit, request) %>
+      </td>
     </tr>
 <% end %>
   </tbody>
