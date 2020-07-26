@@ -25,4 +25,8 @@ defmodule Rumbl.Support do
     |> change_help_request(attrs)
     |> Repo.update()
   end
+
+  def delete_help_request(%HelpRequest{} = help_request) do
+    Repo.delete(help_request)
+  end
 end

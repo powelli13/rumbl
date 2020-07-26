@@ -41,6 +41,16 @@ defmodule RumblWeb.SupportController do
     end
   end
 
+  def delete(conn, %{"id" => id}) do
+    help_request = Support.get_help_request!(id)
+
+    {:ok, _help_request} = Support.delete_help_request(help_request)
+
+    conn
+    |> put_flash(:info, "Help request deleted successfully.")
+    |> redirect(to: Routes.support_path(conn, :index))
+  end
+
   def index(conn, _params) do
     requests = Support.list_help_requests()
     render(conn, "index.html", requests: requests)

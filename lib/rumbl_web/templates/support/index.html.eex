@@ -23,6 +23,8 @@
       </td>
       <td>
         <%= link "Edit", to: Routes.support_path(@conn, :edit, request) %>
+        | 
+        <%= link "Delete", to: Routes.support_path(@conn, :delete, request), method: :delete, data: [confirm: "Are you sure?"] %>
       </td>
     </tr>
 <% end %>
