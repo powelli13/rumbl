@@ -13,6 +13,7 @@
       <section class="container">
         <nav role="navigation">
           <ul>
+            <li><%= link "Support", to: Routes.support_path(@conn, :index) %></li>
             <%= if @current_user do %>
             <li><%= @current_user.username %></li>
             <li>

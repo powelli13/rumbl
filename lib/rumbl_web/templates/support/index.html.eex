@@ -1,0 +1,16 @@
+<h1>Support Help Requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for request <- @requests do %>
+    <tr>
+      <td><%= request %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
