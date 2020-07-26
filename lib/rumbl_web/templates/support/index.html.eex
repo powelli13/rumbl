@@ -4,12 +4,16 @@
   <thead>
     <tr>
       <th>Summary</th>
+      <th>Details</th>
+      <th>Resolved</th>
     </tr>
   </thead>
   <tbody>
 <%= for request <- @requests do %>
     <tr>
-      <td><%= request %></td>
+      <td><%= request.summary %></td>
+      <td><%= request.details %></td>
+      <td><%= request.resolve %></td>
     </tr>
 <% end %>
   </tbody>
