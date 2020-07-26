@@ -20,3 +20,6 @@ config :rumbl, RumblWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+# Used to speed things up on integration tests of the Auth plug
+config :pbkdf2_elixir, :rounds, 1
