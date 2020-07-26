@@ -13,8 +13,13 @@
     <tr>
       <td><%= request.summary %></td>
       <td><%= request.details %></td>
-      <td><%= request.resolve %></td>
+      <td><%= request.resolved %></td>
     </tr>
 <% end %>
   </tbody>
 </table>
+
+<div>
+  <%= link "Create Help Request", 
+    to: Routes.support_path(@conn, :new) %>
+</div>

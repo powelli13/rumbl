@@ -26,7 +26,7 @@ defmodule RumblWeb.Router do
       only: [:new, :create, :delete]
     resources "/support",
       SupportController,
-      only: [:index]
+      only: [:index, :new, :create]
   end
 
   scope "/manage", RumblWeb do
