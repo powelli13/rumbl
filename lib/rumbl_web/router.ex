@@ -26,6 +26,7 @@ defmodule RumblWeb.Router do
       only: [:new, :create, :delete]
     resources "/support",
       SupportController
+    get "/watch/:id", WatchController, :show
   end
 
   scope "/manage", RumblWeb do
