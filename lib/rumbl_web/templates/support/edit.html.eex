@@ -1,5 +1,0 @@
-<h1>Edit Help Request</h1>
-
-<%= render "form.html", Map.put(assigns, :action, Routes.support_path(@conn, :update, @help_request)) %>
-
-<span><%= link "Back", to: Routes.support_path(@conn, :index) %></span>

@@ -1,0 +1,37 @@
+<h1>Support Help Requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Summary</th>
+      <th>Details</th>
+      <th>Resolved</th>
+      <th>Controls</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for request <- @requests do %>
+    <tr>
+      <td><%= request.summary %></td>
+      <td><%= request.details %></td>
+      <td>
+        <%= if request.resolved do %>
+          Resolved
+        <% else %>
+          Not Resolved
+        <% end %>
+      </td>
+      <td>
+        <%= link "Edit", to: Routes.support_path(@conn, :edit, request) %>
+        | 
+        <%= link "Delete", to: Routes.support_path(@conn, :delete, request), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<div>
+  <%= link "Create Help Request", 
+    to: Routes.support_path(@conn, :new) %>
+</div>
