@@ -10,7 +10,7 @@ defmodule InfoSys.Wolfram do
   def name, do: "wolfram"
 
   @impl true
-  def compute(query_str, opts) do
+  def compute(query_str, _opts) do
     query_str
     |> fetch_xml()
     |> xpath(~x"/queryresult/pod[contains(@title, 'Result') or
