@@ -23,3 +23,8 @@ config :logger, level: :warn
 
 # Used to speed things up on integration tests of the Auth plug
 config :pbkdf2_elixir, :rounds, 1
+
+# Setup stubbed HTTP client for testing purposes
+config :info_sys, :wolfram,
+  app_id: "1234",
+  http_client: InfoSys.Test.HTTPClient
