@@ -20,6 +20,9 @@ Video.init(socket, document.getElementById("video"));
 
 import LiveSocket from "phoenix_live_view";
 
-console.log("hi there from here!");
-let liveSocket = new LiveSocket("/live", socket);
+import {Socket} from "phoenix";
+
+let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}});
+
 liveSocket.connect();
