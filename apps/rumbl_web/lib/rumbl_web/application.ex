@@ -12,9 +12,15 @@ defmodule RumblWeb.Application do
       # Start the Endpoint (http/https)
       RumblWeb.Endpoint,
       # Start Presence Tracking for Channels
-      RumblWeb.Presence
+      RumblWeb.Presence,
       # Start a worker by calling: RumblWeb.Worker.start_link(arg)
       # {RumblWeb.Worker, arg}
+      # Simple test Registry usage in order to explore
+      # using Registry as a PubSub to LiveView processes
+      {Registry, keys: :unique, name: LiveViewRegistry},
+      # Test proces to generate data and send it to the
+      # LiveView
+      RumblWeb.DataGenerator
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

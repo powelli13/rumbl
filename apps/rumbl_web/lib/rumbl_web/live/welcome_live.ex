@@ -25,13 +25,20 @@ defmodule RumblWeb.WelcomeLive do
   end
 
   @impl Phoenix.LiveView
+  def handle_info({:new_data, guid}, socket) do
+    {:noreply, update(socket,
+      :items,
+      fn items -> ["Item #{guid}" | items] end)}
+  end
+
+  @impl Phoenix.LiveView
   def mount(_params, _session, socket) do
     salutation = "Welcome to LiveView, from the Programming Phoenix team!"
 
     if connected?(socket) do
-      # register
-      # :timer.send_interval(3000, self(), :add_item)
-      
+      # Register the LiveView process so that
+      # it can be the target of messages
+      Registry.register(LiveViewRegistry, "welcome_test", nil)
     end
 
     {:ok, assign(socket,
