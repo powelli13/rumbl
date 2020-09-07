@@ -70,7 +70,8 @@ config :rumbl_web, RumblWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/rumbl_web/(live|views)/.*(ex)$",
-      ~r"lib/rumbl_web/templates/.*(eex)$"
+      ~r"lib/rumbl_web/templates/.*(eex)$",
+      ~r"lib/rumbl_web/live/.*(ex)$"
     ]
   ]
 

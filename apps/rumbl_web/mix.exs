@@ -48,7 +48,8 @@ defmodule RumblWeb.MixProject do
       {:rumbl, in_umbrella: true},
       {:info_sys, in_umbrella: true},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:calendar, "~> 1.0.0"}
     ]
   end
 

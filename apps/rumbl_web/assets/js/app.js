@@ -17,3 +17,9 @@ import socket from "./socket";
 import Video from "./video";
 
 Video.init(socket, document.getElementById("video"));
+
+import LiveSocket from "phoenix_live_view";
+
+console.log("hi there from here!");
+let liveSocket = new LiveSocket("/live", socket);
+liveSocket.connect();

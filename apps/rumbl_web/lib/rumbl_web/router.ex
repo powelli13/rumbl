@@ -1,5 +1,6 @@
 defmodule RumblWeb.Router do
   use RumblWeb, :router
+  import Phoenix.LiveView.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -7,6 +8,7 @@ defmodule RumblWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :put_root_layout, {RumblWeb.LayoutView, :root}
     plug RumblWeb.Auth
   end
 
@@ -27,6 +29,10 @@ defmodule RumblWeb.Router do
     resources "/support",
       SupportController
     get "/watch/:id", WatchController, :show
+
+    # Experimenting with Phoenix LiveView
+    live "/welcome", WelcomeLive
+    live "/clock", ClockLive
   end
 
   scope "/manage", RumblWeb do
