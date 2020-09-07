@@ -33,6 +33,7 @@ defmodule RumblWeb.Router do
     # Experimenting with Phoenix LiveView
     live "/welcome", WelcomeLive
     live "/clock", ClockLive
+    #live "/counter", CounterLive
   end
 
   scope "/manage", RumblWeb do
